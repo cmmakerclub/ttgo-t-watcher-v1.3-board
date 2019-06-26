@@ -19,8 +19,8 @@ static const uint8_t T4_TFT_RST = 5;
 static const uint8_t T4_TFT_MOSI = 23;
 static const uint8_t T4_TFT_MISO = 12;
 static const uint8_t T4_TFT_CS = 27;
-static const uint8_t T4_TFT_DC = 26;
-static const uint8_t T4_TFT_BL = 26;
+static const uint8_t T4_TFT_DC = 32;
+static const uint8_t T4_TFT_BL = 4;
 
 static const uint8_t T4_SD_CLK = 14;
 static const uint8_t T4_SD_MOSI = 15;

@@ -10,16 +10,12 @@ Adafruit_ILI9341 tft = Adafruit_ILI9341(T4_TFT_CS, T4_TFT_DC);
 
 ${EXTINC}
 
-
 typedef int Number;
 typedef int Boolean;
-
 using namespace std;
 
 ${VARIABLE}
-
 ${FUNCTION}
-
 
 void setup()
 {
