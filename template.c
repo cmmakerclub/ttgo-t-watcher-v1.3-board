@@ -23,7 +23,7 @@ void setup()
   pinMode(T4_BUTTON2, INPUT_PULLUP);
   pinMode(T4_BUTTON3, INPUT_PULLUP);
   pinMode(T4_TFT_BL, OUTPUT);
-  digitalWrite(T4_TFT_BL HIGH);
+  digitalWrite(T4_TFT_BL, HIGH);
 
   tft.begin();
   tft.setRotation(0);
