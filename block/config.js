@@ -187,14 +187,14 @@ module.exports = {
                 'input_read'
             ]
         },
-        {
-            name : 'Advance',
-            color : '290',
-            icon : '/static/icons/SVG/c10.svg',
-            blocks : [
-                'advance_task'
-            ]
-        },
+        // {
+        //     name : 'Advance',
+        //     color : '290',
+        //     icon : '/static/icons/SVG/c10.svg',
+        //     blocks : [
+        //         'advance_task'
+        //     ]
+        // },
         // {
         //     name : 'IoT',
         //     color : '195',
