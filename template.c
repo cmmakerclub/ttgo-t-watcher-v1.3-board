@@ -1,6 +1,8 @@
 #include <Arduino.h>
-#include <vector>
 #include <WiFi.h>
+#include <WiFiClient.h>
+#include <WiFiAP.h>
+#include <WebServer.h>
 #include "SPI.h"
 #include "pins_arduino.h"
 #include <Adafruit_GFX.h>
@@ -10,11 +12,8 @@ Adafruit_ILI9341 tft = Adafruit_ILI9341(T4_TFT_CS, T4_TFT_DC);
 
 ${EXTINC}
 
-typedef int Number;
-typedef int Boolean;
-using namespace std;
-
 ${VARIABLE}
+
 ${FUNCTION}
 
 void setup()
@@ -29,14 +28,14 @@ void setup()
   tft.setRotation(0);
   tft.fillScreen(0xFFFF);
   tft.setTextSize(1);
-
+  
   ${SETUP_CODE}
   ${BLOCKSETUP}
+
+
 }
 void loop()
 {
   ${LOOP_CODE}
   ${LOOP_EXT_CODE}
-
-  while(1){yield();};
 }
