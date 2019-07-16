@@ -105,7 +105,7 @@ module.exports = {
     {
       name: "Display",
       color: "230",
-      icon: "/static/icons/display.png",
+      icon: "/static/icons/icons8_picture_96px_1.png",
       blocks: [
         {
           xml: `<block type="variables_set">
@@ -351,7 +351,7 @@ module.exports = {
     {
         name: "SD Card",
         color: "65",
-        icon: "/static/icons/sd-card.png",
+        icon: "/static/icons/icons8_stack_96px.png",
         blocks: [
            "sdcard_begin",
            {
