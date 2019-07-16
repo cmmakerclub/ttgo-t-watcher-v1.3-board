@@ -105,7 +105,7 @@ module.exports = {
     {
       name: "Display",
       color: "230",
-      icon: "/static/icons/icons8_picture_96px_1.png",
+      icon: "/static/icons/display.png",
       blocks: [
         {
           xml: `<block type="variables_set">
@@ -155,7 +155,6 @@ module.exports = {
         "tft_display_setRotation",
         "tft_display_fillScreen",
         // 'tft_display_setTextSize',
-        "basic_string",
         {
           xml:
             `<block type="tft_display_print">
@@ -265,7 +264,8 @@ module.exports = {
                             </shadow>
                         </value>
                     </block>`
-        }
+        },
+        "basic_string"
         // {
         //     xml :
         //     `<block type="i2c128x64_display_draw_progress_bar">
@@ -349,6 +349,49 @@ module.exports = {
       // ]
     },
     {
+        name: "SD Card",
+        color: "65",
+        icon: "/static/icons/sd-card.png",
+        blocks: [
+           "sdcard_begin",
+           {
+            xml:
+              `<block type="sdcard_write_txt">
+                  <value name="DATA">
+                      <shadow type="basic_string">
+                          <field name="VALUE">Hello KB-IDE</field>
+                      </shadow>
+                  </value>
+              </block>`
+           },
+           {
+            xml:
+              `<block type="sdcard_write_csv">
+                  <value name="DATA1">
+                      <shadow type="basic_string">
+                          <field name="VALUE"></field>
+                      </shadow>
+                  </value>
+                  <value name="DATA2">
+                      <shadow type="basic_string">
+                          <field name="VALUE"></field>
+                      </shadow>
+                  </value>
+                  <value name="DATA3">
+                      <shadow type="basic_string">
+                          <field name="VALUE"></field>
+                      </shadow>
+                  </value>
+                  <value name="DATA4">
+                      <shadow type="basic_string">
+                          <field name="VALUE"></field>
+                      </shadow>
+                  </value>
+              </block>`
+           }
+        ]
+    },
+    {
       name: "Time",
       color: "230",
       icon: "/static/icons/icons8_Story_Time_96px.png",
@@ -358,7 +401,7 @@ module.exports = {
             `<block type="time_delay">
                         <value name="delay">
                             <shadow type="math_number">
-                                <field name="NUM">500</field>
+                                <field name="NUM">1000</field>
                             </shadow>
                         </value>
                     </block>`
@@ -372,18 +415,18 @@ module.exports = {
                             </shadow>
                         </value>
                     </block>`
-        },
-        "time_wait_btn_press",
-        "time_sync",
-        "time_get_year",
-        "time_get_month",
-        "time_get_day",
-        "time_get_day_of_week",
-        "time_get_hour",
-        "time_get_minute",
-        "time_get_second",
-        "time_millis",
-        "time_micros"
+        }
+        // "time_wait_btn_press",
+        // "time_sync",
+        // "time_get_year",
+        // "time_get_month",
+        // "time_get_day",
+        // "time_get_day_of_week",
+        // "time_get_hour",
+        // "time_get_minute",
+        // "time_get_second",
+        // "time_millis",
+        // "time_micros"
       ]
     },
     {
