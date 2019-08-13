@@ -26,6 +26,24 @@ module.exports = function(Blockly) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
 
+  Blockly.JavaScript["i2c128x64_take_a_photo"] = function(block) {
+    var dataurl = block.inputList[1].fieldRow["0"].src_;
+    var image = nativeImage.createFromDataURL(dataurl);
+    var size = image.getSize();
+
+    var mm = image.getBitmap();
+    var arr = [];
+    var raw = [];
+    for (let i = 0; i < image.getBitmap().length - 4; i += 4) {
+      let [r, g, b] = [mm[i + 2], mm[i + 1], mm[i + 0]];
+      let out = (((r & 0xf8) << 8) + ((g & 0xfc) << 3) + (b >> 3));
+      arr.push("0x" + out.toString(16));
+    }
+    console.log(raw);
+    var code = `(std::vector<uint16_t>{${arr.join(",")}})`;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  };
+
   Blockly.JavaScript["i2c128x64_display_image"] = function(block) {
     var value_img = Blockly.JavaScript.valueToCode(block,
       "img",

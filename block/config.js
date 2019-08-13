@@ -150,6 +150,7 @@ module.exports = {
                          </value>
                      </block>`
         },
+        "i2c128x64_take_a_photo",
         // "i2c128x64_display_clear",
         // "i2c128x64_display_display",
         "tft_display_setRotation",
