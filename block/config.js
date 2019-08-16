@@ -3,15 +3,15 @@ module.exports = {
                             <block type="arduino_init" deletable="false" x="-100" y="-50">
                             </block><block type="arduino_loop" deletable="false" x="100" y="-50"></block>
                       </xml>`,
-  base_blocks: [ // use "blocks : [ " in normally situation but this need to override base block from esp-idf platforms
+  base_blocks: [
+    // use "blocks : [ " in normally situation but this need to override base block from esp-idf platforms
     {
       name: "GPIO",
       color: "230",
       icon: "/static/icons/icons8_electronics_96px.png",
       blocks: [
         {
-          xml:
-            `<block type="io_setpin">
+          xml: `<block type="io_setpin">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">25</field>
@@ -20,8 +20,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="io_digital_read">
+          xml: `<block type="io_digital_read">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">32</field>
@@ -30,8 +29,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="io_digital_write">
+          xml: `<block type="io_digital_write">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">33</field>
@@ -45,8 +43,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="io_analog_read">
+          xml: `<block type="io_analog_read">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">36</field>
@@ -55,8 +52,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="io_analog_write">
+          xml: `<block type="io_analog_write">
                         <value name="value">
                             <shadow type="math_number">
                                 <field name="NUM">128</field>
@@ -65,8 +61,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="io_pwm_write">
+          xml: `<block type="io_pwm_write">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">36</field>
@@ -80,8 +75,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="io_pulse_in">
+          xml: `<block type="io_pulse_in">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">36</field>
@@ -91,8 +85,7 @@ module.exports = {
         },
         "io_shift_in",
         {
-          xml:
-            `<block type="io_shift_out">
+          xml: `<block type="io_shift_out">
                         <value name="data">
                             <shadow type="math_number">
                                 <field name="NUM">127</field>
@@ -107,17 +100,11 @@ module.exports = {
       color: "230",
       icon: "/static/icons/icons8_picture_96px_1.png",
       blocks: [
+        "set_variable_block",
+        "i2c128x64_create_image",
+        "i2c128x64_take_a_photo",
         {
-          xml: `<block type="variables_set">
-                                 <field name="VAR">img1</field>
-                                 <value name="VALUE">
-                                     <block type="i2c128x64_create_image" inline="false"></block>
-                                 </value>
-                             </block>`
-        },
-        {
-          xml:
-            `<block type="i2c128x64_display_image">
+          xml: `<block type="i2c128x64_display_image">
                          <value name="img">
                              <block type="variables_get">
                                  <field name="VAR">img1</field>
@@ -150,15 +137,13 @@ module.exports = {
                          </value>
                      </block>`
         },
-        "i2c128x64_take_a_photo",
         // "i2c128x64_display_clear",
         // "i2c128x64_display_display",
         "tft_display_setRotation",
         "tft_display_fillScreen",
         // 'tft_display_setTextSize',
         {
-          xml:
-            `<block type="tft_display_print">
+          xml: `<block type="tft_display_print">
                         <value name="TEXT">
                             <shadow type="basic_string">
                                 <field name="VALUE">Hello world!</field>
@@ -197,8 +182,7 @@ module.exports = {
         //     </block>`
         // },
         {
-          xml:
-            `<block type="tft_display_draw_line">
+          xml: `<block type="tft_display_draw_line">
                         <value name="x0">
                             <shadow type="math_number">
                                 <field name="NUM">10</field>
@@ -222,8 +206,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="tft_display_draw_rect">
+          xml: `<block type="tft_display_draw_rect">
                         <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">10</field>
@@ -247,8 +230,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="tft_display_draw_circle">
+          xml: `<block type="tft_display_draw_circle">
                         <value name="x">
                             <shadow type="math_number">
                                 <field name="NUM">64</field>
@@ -350,24 +332,22 @@ module.exports = {
       // ]
     },
     {
-        name: "SD Card",
-        color: "65",
-        icon: "/static/icons/icons8_stack_96px.png",
-        blocks: [
-           "sdcard_begin",
-           {
-            xml:
-              `<block type="sdcard_write_txt">
+      name: "SD Card",
+      color: "65",
+      icon: "/static/icons/icons8_stack_96px.png",
+      blocks: [
+        "sdcard_begin",
+        {
+          xml: `<block type="sdcard_write_txt">
                   <value name="DATA">
                       <shadow type="basic_string">
                           <field name="VALUE">Hello KB-IDE</field>
                       </shadow>
                   </value>
               </block>`
-           },
-           {
-            xml:
-              `<block type="sdcard_write_csv">
+        },
+        {
+          xml: `<block type="sdcard_write_csv">
                   <value name="DATA1">
                       <shadow type="basic_string">
                           <field name="VALUE"></field>
@@ -389,8 +369,8 @@ module.exports = {
                       </shadow>
                   </value>
               </block>`
-           }
-        ]
+        }
+      ]
     },
     {
       name: "Time",
@@ -398,8 +378,7 @@ module.exports = {
       icon: "/static/icons/icons8_Story_Time_96px.png",
       blocks: [
         {
-          xml:
-            `<block type="time_delay">
+          xml: `<block type="time_delay">
                         <value name="delay">
                             <shadow type="math_number">
                                 <field name="NUM">1000</field>
@@ -408,8 +387,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="time_delay_microsec">
+          xml: `<block type="time_delay_microsec">
                         <value name="delay">
                             <shadow type="math_number">
                                 <field name="NUM">1000</field>
@@ -443,8 +421,7 @@ module.exports = {
       blocks: [
         "math_number",
         {
-          xml:
-            `<block type="math_arithmetic">
+          xml: `<block type="math_arithmetic">
                         <value name="A">
                             <shadow type="math_number">
                                 <field name="NUM">1</field>
@@ -458,8 +435,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="math_variables_set">
+          xml: `<block type="math_variables_set">
                         <value name="VALUE">
                             <shadow type="math_number">
                                 <field name="NUM">1</field>
@@ -469,8 +445,7 @@ module.exports = {
         },
         "math_variables_get",
         {
-          xml:
-            `<block type="math_pow">
+          xml: `<block type="math_pow">
                         <value name="NUM1">
                             <shadow type="math_number">
                                 <field name="NUM">2</field>
@@ -485,8 +460,7 @@ module.exports = {
         },
         /*'math_sqrt',*/
         {
-          xml:
-            `<block type="math_single">
+          xml: `<block type="math_single">
                         <value name="NUM">
                             <shadow type="math_number">
                                 <field name="NUM">9</field>
@@ -495,8 +469,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="math_trig">
+          xml: `<block type="math_trig">
                         <value name="NUM">
                             <shadow type="math_number">
                                 <field name="NUM">90</field>
@@ -505,8 +478,7 @@ module.exports = {
                     </block>`
         },
         {
-          xml:
-            `<block type="math_round">
+          xml: `<block type="math_round">
                         <value name="NUM">
                             <shadow type="math_number">
                                 <field name="NUM">1.2</field>
@@ -519,8 +491,7 @@ module.exports = {
         'math_map',*/
         "math_random_int",
         {
-          xml:
-            `<block type="math_number_property">
+          xml: `<block type="math_number_property">
                         <value name="NUMBER_TO_CHECK">
                             <shadow type="math_number">
                                 <field name="NUM">5</field>
@@ -550,8 +521,7 @@ module.exports = {
         "basic_forever",
         "controls_whileUntil",
         {
-          xml:
-            `<block type="controls_for">
+          xml: `<block type="controls_for">
                         <value name="FROM">
                             <shadow type="math_number">
                                 <field name="NUM">1</field>
@@ -619,8 +589,7 @@ module.exports = {
           blocks: [
             "basic_string",
             {
-              xml:
-                `<block type="text_length">
+              xml: `<block type="text_length">
                                 <value name="VALUE">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -630,8 +599,7 @@ module.exports = {
             },
             "text_join",
             {
-              xml:
-                `<block type="text_append">
+              xml: `<block type="text_append">
                                 <value name="TEXT">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -640,8 +608,7 @@ module.exports = {
                             </block>`
             },
             {
-              xml:
-                `<block type="text_isEmpty">
+              xml: `<block type="text_isEmpty">
                                     <value name="VALUE">
                                         <shadow type="basic_string">
                                             <field name="VALUE">Hello world!</field>
@@ -650,8 +617,7 @@ module.exports = {
                                 </block>`
             },
             {
-              xml:
-                `<block type="text_indexOf">
+              xml: `<block type="text_indexOf">
                                 <value name="VALUE">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -660,8 +626,7 @@ module.exports = {
                             </block>`
             },
             {
-              xml:
-                `<block type="text_charAt">
+              xml: `<block type="text_charAt">
                                 <value name="VALUE">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -670,8 +635,7 @@ module.exports = {
                             </block>`
             },
             {
-              xml:
-                `<block type="text_getSubstring">
+              xml: `<block type="text_getSubstring">
                                 <value name="STRING">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -680,8 +644,7 @@ module.exports = {
                             </block>`
             },
             {
-              xml:
-                `<block type="text_changeCase">
+              xml: `<block type="text_changeCase">
                                 <value name="TEXT">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -690,8 +653,7 @@ module.exports = {
                             </block>`
             },
             {
-              xml:
-                `<block type="text_trim">
+              xml: `<block type="text_trim">
                                 <value name="TEXT">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -700,8 +662,7 @@ module.exports = {
                             </block>`
             },
             {
-              xml:
-                `<block type="text_replace">
+              xml: `<block type="text_replace">
                                 <value name="TEXT">
                                     <shadow type="basic_string">
                                         <field name="VALUE">Hello world!</field>
@@ -748,8 +709,7 @@ module.exports = {
             "wifi_start_server",
             "wifi_server_on",
             {
-              xml:
-                `<block type="wifi_server_send">
+              xml: `<block type="wifi_server_send">
                                     <value name="text">
                                         <shadow type="basic_string">
                                             <field name="VALUE">Hello world!</field>
@@ -770,8 +730,7 @@ module.exports = {
           blocks: [
             "bt_start",
             {
-              xml:
-                `<block type="bt_send_string">
+              xml: `<block type="bt_send_string">
                                     <value name="text">
                                         <shadow type="basic_string">
                                             <field name="VALUE">Hello world!</field>
@@ -793,8 +752,7 @@ module.exports = {
             "serial_hardware_init",
             "serial_available",
             {
-              xml:
-                `<block type="serial_write_data">
+              xml: `<block type="serial_write_data">
                                     <value name="text">
                                         <shadow type="basic_string">
                                             <field name="VALUE">Hello world!</field>
@@ -809,103 +767,100 @@ module.exports = {
           ]
         },
         {
-            type: 'category',
-            name: 'Task',
-            icon: '/static/icons/SVG/13.svg',
-            blocks: [
-              { xml: '<label text="Custom start" web-class="headline"></label>' },
-              {
-                xml:
-                  `<block type="task_io_interrupt">
+          type: "category",
+          name: "Task",
+          icon: "/static/icons/SVG/13.svg",
+          blocks: [
+            { xml: '<label text="Custom start" web-class="headline"></label>' },
+            {
+              xml: `<block type="task_io_interrupt">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">1</field>
                             </shadow>
                         </value>
                     </block>`
-              },
-              {
-                xml: `<block type="task_timer_interrupt">
+            },
+            {
+              xml: `<block type="task_timer_interrupt">
                             <value name="delay">
                                 <shadow type="math_number">
                                     <field name="NUM">500</field>
                                 </shadow>
                             </value>
                        </block>`
-              },
-              {
-                xml: `<block type="task_timer_interrupt_once">
+            },
+            {
+              xml: `<block type="task_timer_interrupt_once">
                                 <value name="delay">
                                     <shadow type="math_number">
                                         <field name="NUM">500</field>
                                     </shadow>
                                 </value>
                            </block>`
-              },
-              'task_task',
-              {
-                xml: `<sep gap="32"></sep><label text="Auto start" web-class="headline"></label>`
-              },
-              {
-                xml:
-                  `<block type="task_io_interrupt_ext">
+            },
+            "task_task",
+            {
+              xml: `<sep gap="32"></sep><label text="Auto start" web-class="headline"></label>`
+            },
+            {
+              xml: `<block type="task_io_interrupt_ext">
                         <value name="pin">
                             <shadow type="math_number">
                                 <field name="NUM">1</field>
                             </shadow>
                         </value>
                     </block>`
-              },
-              {
-                xml: `<block type="task_timer_interrupt_ext">
+            },
+            {
+              xml: `<block type="task_timer_interrupt_ext">
                             <value name="delay">
                                 <shadow type="math_number">
                                     <field name="NUM">500</field>
                                 </shadow>
                             </value>
                        </block>`
-              },
-              {
-                xml: `<block type="task_timer_interrupt_once_ext">
+            },
+            {
+              xml: `<block type="task_timer_interrupt_once_ext">
                                 <value name="delay">
                                     <shadow type="math_number">
                                         <field name="NUM">500</field>
                                     </shadow>
                                 </value>
                            </block>`
-              },
-              'task_task_ext',
-              {
-                xml: `<sep gap="32"></sep><label text="Stopper" web-class="headline"></label>`
-              },
-              'task_detach_timer',
-              {
-                xml: `<block type="task_detach_gpio">
+            },
+            "task_task_ext",
+            {
+              xml: `<sep gap="32"></sep><label text="Stopper" web-class="headline"></label>`
+            },
+            "task_detach_timer",
+            {
+              xml: `<block type="task_detach_gpio">
                                 <value name="pin">
                                     <shadow type="math_number">
                                         <field name="NUM">1</field>
                                     </shadow>
                                 </value>
                            </block>`
-              }
-            ]
-          },
-          {
-            type: 'category',
-            name: 'MQTT',
-            icon: '/static/icons/SVG/13.svg',
-            blocks:
-              [
-                'mqtt_block',
-                'mqtt_connect_block',
-                'mqtt_subscribe_block',
-                'mqtt_callback_block',
-                'topic_block',
-                'payload_block',
-                'mqtt_publish_block',
-                'mqtt_loop_block'
-              ]
-          }
+            }
+          ]
+        },
+        {
+          type: "category",
+          name: "MQTT",
+          icon: "/static/icons/SVG/13.svg",
+          blocks: [
+            "mqtt_block",
+            "mqtt_connect_block",
+            "mqtt_subscribe_block",
+            "mqtt_callback_block",
+            "topic_block",
+            "payload_block",
+            "mqtt_publish_block",
+            "mqtt_loop_block"
+          ]
+        }
       ]
     }
   ]
