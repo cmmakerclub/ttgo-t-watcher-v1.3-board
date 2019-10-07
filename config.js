@@ -9,5 +9,5 @@ module.exports = {
   email: "makerasia@gmail.com",
   git: "https://github.com/cmmakerclub/ttgo-t-watcher-v1.3-board/",
   image: "/static/display.jpg",
-  version: "1.0.7",
+  version: "1.1.0",
 };
