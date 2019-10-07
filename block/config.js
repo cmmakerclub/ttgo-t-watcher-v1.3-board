@@ -1,10 +1,6 @@
 let display = require("./menu/config.group.display");
 let sdcard = require("./menu/config.group.sdcard");
 
-// let buzzer = require("./menu/config.group.buzzer");
-// let time = require("./menu/config.group.time");
-// let common = require("./menu/config.group.common");
-
 module.exports = {
     blocks: [
         display,
